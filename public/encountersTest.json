@@ -1,0 +1,37 @@
+{
+    "encounters": [
+        {
+            "id": 81,
+            "date": "2014-10-13T21:12:00.000+02:00",
+            "latitude": 48.851811,
+            "longitude": 2.335968,
+            "user_id": 4,
+            "user_name": "Romain",
+            "street_person_name": "Pablo",
+            "message": "Voici le beau message audio de Pablo : http://youtu.be/f5-9ew-Rw3s",
+            "voice_message": "http://youtu.be/f5-9ew-Rw3s"
+        },
+        {
+            "id": 82,
+            "date": "2014-10-27T21:09:00.000+01:00",
+            "latitude": 46.852253670305,
+            "longitude": 2.33663553153799,
+            "user_id": 3,
+            "user_name": "Dominique",
+            "street_person_name": "laurent",
+            "message": "Je suis sdf, rue Felibien, si vous avez des vêtements chauds pour l'hiver, bonne pioche et merci",
+            "voice_message": ""
+        },
+        {
+            "id": 75,
+            "date": "2014-10-13T20:46:00.000+02:00",
+            "latitude": 48.8560898973607,
+            "longitude": 2.32746785566647,
+            "user_id": 6,
+            "user_name": "Jean-Marc",
+            "street_person_name": "patrick",
+            "message": "On sait faire un bon café ! \r\nmessage vocal sur : https://soundcloud.com/dominique-lequepeys/sets/patrickstthomasdaquin",
+            "voice_message": "https://soundcloud.com/dominique-lequepeys/sets/patrickstthomasdaquin"
+        }
+    ]
+}
