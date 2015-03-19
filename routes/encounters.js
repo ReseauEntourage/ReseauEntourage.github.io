@@ -11,19 +11,18 @@ var encounterList="";
 var initEncounters = function(list) {
 	var encounterList = new Array();
 	list.forEach(function(e){
-		if(e.voice_message==null) { 
-			return;
+		if(e.voice_message!=null) { 
+			if(e.voice_message.search("api.soundcloud")!=-1) {
+				e.voice_message = e.voice_message.replace("/stream","")+ "?client_id=8ea64716590a242e6f205bf1f821bb4a";
+				console.log(e.id+"=="+e.voice_message);
+				encounterList[encounterList.length] = e;
+			} else if(e.voice_message.search("soundcloud")!=-1) {
+				console.log(e.id+"=="+e.voice_message);
+			} else {
+				e.voice_message=null;
+			}
 		} 
-		if(e.voice_message.search("api.soundcloud")!=-1) {
-			e.voice_message = e.voice_message.replace("/stream","")+ "?client_id=8ea64716590a242e6f205bf1f821bb4a";
-			console.log(e.id+"=="+e.voice_message);
-			encounterList[encounterList.length] = e;
-		} else if(e.voice_message.search("soundcloud")!=-1) {
-			console.log(e.id+"=="+e.voice_message);
-			encounterList[encounterList.length] = e;
-		} else {
-			e.voice_message=null;
-		}
+		encounterList[encounterList.length] = e;
 	})
 	/* GET encounters page.*/
 	router.get('/', function(req, res) {

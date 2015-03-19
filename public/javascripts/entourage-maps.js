@@ -52,7 +52,7 @@ function initialize() {
     }
 
     var getTwitterLink = function(e) {
-        return "http://entourage.fr/encounters/"+e.id;
+        return "http://entourage.social/encounters/"+e.id;
     }
 
     var getVocalMessage = function(e){
@@ -97,7 +97,7 @@ function initialize() {
       });
 
       var encounter_img = "/images/rencontre2.png";
-      if(e.voice_message!==null && e.voice_message.search('soundcloud')!==-1 && e.voice_message.search('api.soundcloud')!=-1) {
+      if(e.voice_message!==null && e.voice_message.search('soundcloud')!==-1) {
         encounter_img = "/images/rencontre.png";
       }
 
