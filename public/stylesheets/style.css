@@ -11,6 +11,7 @@ a.twitter-mention-button,
 a.twitter-hashtag-button {
   display: inline-block;
   padding: 1px 3px 0 19px;
+  margin-bottom: 5px;
   border: #ccc solid 1px;
   border-radius: 3px;
   background: #f8f8f8 url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat;
