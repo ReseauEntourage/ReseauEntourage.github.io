@@ -1,10 +1,14 @@
 // When the user clicks the marker, an info window opens.
 
 var map;
-var lastOpenMarker=null;
-var lastOpenWindow=null;
+var lastEncounter = 0;
+var encounterList = new Map;
 
 function initialize() {
+
+  if(window.location.hash !="") {
+    encounter=window.location.hash.substring(1);
+  }
 
   var centerLatlng = new google.maps.LatLng(48.8740710605701,2.28949543195957);
   var mapOptions = {
@@ -46,8 +50,12 @@ function initialize() {
     };
 
     var getTitle = function(e) {
+      return e.user_name+' a rencontré '+e.street_person_name;
+    }
+
+    var getHTMLTitle = function(e) {
       return '<h1 id="firstHeading" class="firstHeading">'
-        +e.user_name+' & '+e.street_person_name
+        +getTitle(e)
         +'</h1>';
     }
 
@@ -76,7 +84,8 @@ function initialize() {
     /*var getFacebookButton =function(e) {
       return '<div id="fb-'+e.id+'"class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>';
     }
-  */
+    */
+
     var getMessage = function(e) {
       return '<div id="bodyContent">'+
           '<div id=twitter-msg-entourage><a class="twitter-hashtag-button" href="https://twitter.com/intent/tweet?button_hashtag=entourage&text='+
@@ -88,7 +97,7 @@ function initialize() {
 
     var contentString = '<div id="content">'+
           '</div>'+
-          getTitle(e)+
+          getHTMLTitle(e)+
           getMessage(e)+
           '</div>';
 
@@ -101,37 +110,64 @@ function initialize() {
         encounter_img = "/images/rencontre.png";
       }
 
+      var titleFormat = "#";
+
+      var parseTitleForId = function (newtitle) {
+        return parseInt(newtitle.replace(titleFormat,""));
+      }
+
+      var setTitleFromId = function (newid) {
+        return titleFormat+newid;
+      }
+
       var marker = new google.maps.Marker({
           position: myLatlng,
           icon: encounter_img,
           map: map,
-          title: 'Entourage'
+          title: setTitleFromId(e.id)+": "+getTitle(e)
       });
+      encounterList.set(e.id, {marker:marker, infoWindow: infowindow});
 
-      var openMarker = function(marker) {
-        if(lastOpenMarker!=null) {
-          lastOpenWindow.close(map,lastOpenMarker);
+      var openMarker = function(marker, newid) {
+        if(lastEncounter!=0) {
+          console.log(lastEncounter);
+          var enc  = encounterList.get(parseInt(lastEncounter));
+          if(enc) {
+            enc.infoWindow.close(map);
+            lastEncounter = 0;
+          }
         }
         infowindow.open(map,marker);
-        lastOpenMarker = marker;
-        lastOpenWindow = infowindow;
+        lastEncounter=newid;
       }
 
       google.maps.event.addListener(marker, 'click', function() {
-        if(lastOpenMarker!=null) {
-          lastOpenWindow.close(map,lastOpenMarker);
-        }
-        infowindow.open(map,marker);
-        lastOpenMarker = marker;
-        lastOpenWindow = infowindow;
+        window.location.hash="#"+parseTitleForId(marker.title);
       });
 
       if(e.id==encounter) {
         map.setCenter(myLatlng);
-        openMarker(marker);
+        openMarker(marker, encounter);
       }
 
   });
+}
+
+function hashchanged(){
+  if((lastEncounter) &&(lastEncounter!=0)) {
+      var enc  = encounterList.get(parseInt(lastEncounter));
+      if(enc) {
+        enc.infoWindow.close(map);
+      }
+      lastEncounter = 0;
+  }
+  if(window.location.hash=="")
+    return;
+  lastEncounter = window.location.hash.substring(1);
+  var en = encounterList.get(parseInt(lastEncounter));
+  if(en) {
+    en.infoWindow.open(map,en.marker);
+  }
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -152,4 +188,4 @@ function handleNoGeolocation(errorFlag) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
+window.onhashchange = hashchanged;
