@@ -1,15 +1,20 @@
-extends layout
+extends base
 
-block header
+append javascripts
   script.
     encounter="#{encounter}";
   script(type='text/javascript').
     var encounters = JSON.parse(!{JSON.stringify(encounters)});
-  script( type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lrduxzdLGCSCWZgj174UQj-iKAoGdNg')
-  script( src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-  script( src='/javascripts/entourage-maps.js')
-  script('window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));')
-  script('(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.0"; fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));')
+  script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lrduxzdLGCSCWZgj174UQj-iKAoGdNg')
+  script(type='text/javascript', src='/javascripts/entourage-maps.js')
+
 block content
-  #fb-root
-  #map-canvas
+  .row
+    .col-md-12
+      #map-canvas.full-height.full-width
+  .row#subscribe
+    .col-md-12
+      p FORM
+  .row#about
+    .col-md-12
+      p DESC

@@ -4,11 +4,21 @@ html
     meta(name="viewport",content="initial-scale=1.0, user-scalable=no")
     meta(charset="utf-8")
     title= title
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-    script(src='/bootstrap/js/bootstrap.min.js')    
-    block header
-    
+    block stylesheets
+      link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/stylesheets/style.css')
+    block head
+
   body
-    block content
+    block body
+    #fb-root
+
+    block javascripts
+      script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
+      script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
+      script(type='text/javascript').
+        window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+
+    append head
+      script(type='text/javascript').
+        (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));

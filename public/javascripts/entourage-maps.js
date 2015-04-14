@@ -1,4 +1,4 @@
-// When the user clicks the marker, an info window opens.
+;
 
 var map;
 var lastEncounter = 0;
@@ -189,3 +189,34 @@ function handleNoGeolocation(errorFlag) {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 window.onhashchange = hashchanged;
+
+// BEGIN SMOOTH SCROOLING
+function bindSmoothScrolling() {
+  // from https://css-tricks.com/snippets/jquery/smooth-scrolling/
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var $target = $(this.hash);
+      $target = $target.length ? $target : $('[name=' + this.hash.slice(1) +']');
+      if ($target.length) {
+        $('html,body').animate({
+          scrollTop: $target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+}
+// END SMOOTH SCROOLING
+
+jQuery(document).ready(function ( $ ) {
+  // BEGIN CALLS
+  // END CALLS
+
+  // BEGIN BINDS
+  bindSmoothScrolling();
+  //bindGoogleMap();
+  // END BINDS
+
+  // BEGIN MANUAL BINDS
+  // END MANUAL BINDS
+});
