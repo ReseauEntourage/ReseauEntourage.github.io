@@ -1,18 +1,25 @@
+$header-top: 70px;
+
 /* GENERAL
 -----------------------*/
 body {
-  padding-top: 50px;
+  padding-top: $header-top;
 }
 
 /* HEADER
 -----------------------*/
 .navbar {
+  padding: 10px 0;
+  background: #fff;
   text-align: center;
 }
 .navbar-center {
   float: none;
   vertical-align: top;
   display: inline-block;
+}
+#logo {
+  height: 50px;
 }
 
 /* BOOTSTRAP OVERRIDING
@@ -27,6 +34,21 @@ body {
   margin-left: -15px;
   margin-right: -15px;
 }
+.is-loading {
+  cursor:progress !important;
+}
+
+/* FORM
+-----------------------*/
+
+#subscribe {
+  margin-top: 2em;
+}
+#subscribe h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
 
 /* GOOGLE
 -----------------------*/

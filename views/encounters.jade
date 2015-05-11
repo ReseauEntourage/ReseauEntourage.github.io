@@ -8,13 +8,13 @@ append javascripts
   script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lrduxzdLGCSCWZgj174UQj-iKAoGdNg')
   script(type='text/javascript', src='/javascripts/entourage-maps.js')
 
-block content
+block before_content
   .row
     .col-md-12
       #map-canvas.full-height.full-width
-  .row#subscribe
-    .col-md-12
-      p FORM
+
+block after_content
   .row#about
-    .col-md-12
-      p DESC
+    .col-md-8.col-md-offset-2
+      h2.text-center Projet Entourage
+      p.text-justify We need your Help !

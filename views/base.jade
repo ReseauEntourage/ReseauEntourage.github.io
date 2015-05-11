@@ -2,7 +2,7 @@ extends layout
 
 block body
   block header
-    nav.navbar.navbar-inverse.navbar-fixed-top
+    nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
           button.navbar-toggle.collapsed(type="button",data-toggle="collapse",data-target="#navbar",aria-expanded="false",aria-controls="navbar")
@@ -10,17 +10,31 @@ block body
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="#") Project name
+          a.navbar-brand(href="#", style="padding:0;")
+            img(src="/images/logo.png", alt="Entourage logo", id="logo")
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a(href="#jeminscris") JE M'INSCRIS
-          ul.nav.navbar-nav.navbar-center
+              a(href="#subscribe") J'agis
             li
-              a.navbar-brand(href="#") Project name
+              a(href="#about") À propos
+          .nav.navbar-nav.navbar-center
+            a.navbar-brand(href="#") Entourage
 
     .container-fluid
+      block before_content
       block content
+        .row
+          .col-md-6.col-md-offset-3
+            #subscribe.well
+              h2 Moi aussi, j'agis !
+              form.form-json(method="post", action=api_url + "newsletter_subscriptions.json")
+                .form-group
+                  input.form-control.input-lg(type="email", name="newsletter_subscription[email]", placeholder="Entrez votre email", required)
+                  input(type="hidden", name="newsletter_subscription[active]", value="true")
+                .form-group
+                  input.btn.btn-primary.btn-lg.btn-block(type="submit", value="Je participe !")
+      block after_content
 
     footer.footer
       block footer

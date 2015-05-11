@@ -30,6 +30,8 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.locals.api_url = process.env.API_URL || "http://localhost:5000/";
+
 app.use('/', routes);
 app.use('/encounters', encounters);
 
