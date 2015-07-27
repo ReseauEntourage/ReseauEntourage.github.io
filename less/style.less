@@ -1,7 +1,3 @@
-/*!
- * Entourage
- */
-
 html {
   position: relative;
   min-height: 100%;
@@ -22,6 +18,30 @@ body {
     margin: 20px 0;
   }
 }
+@size-socials: 45px;
+.socials {
+  a {
+    width: @size-socials;
+    height: @size-socials;
+    line-height: @size-socials;
+    display: inline-block;
+    background: #f0652e;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+h2 {
+  font-weight: normal;
+  margin-top: 70px;
+  letter-spacing: 1px;
+}
+.lead {
+  margin-top: 20px;
+}
+.follow-us {
+  margin-top: 60px;
+}
 
 /* HEADER
 -----------------------*/
@@ -32,6 +52,7 @@ body {
 
   .navbar-brand {
     float: none;
+    font-size: 32px;
     line-height: @navbar-height;
   }
 }

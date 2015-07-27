@@ -1,9 +1,23 @@
 extends base
 
 block content
-  h1= title
-  p Bienvenue sur le #{title}
-  p Retrouvez-nous sur 
-    a(href='https://www.facebook.com/EntourageReseauCivique') Facebook 
-    | et aussi sur 
-    a(href='https://twitter.com/R_Entour') Twitter
+  div.center-block(style='max-width:500px;')
+    h2 BIENTÔT DISPONIBLE À PARIS
+    p.lead Pour connaitre l&apos;actualit&eacute; d&apos;Entourage :
+    form.form-json(method='post', action='http://entourage-back.herokuapp.com/newsletter_subscriptions.json')
+      .input-group
+        input.form-control.input-lg(type='email', name='newsletter_subscription[email]', placeholder='Entrez votre email', required='')
+        span.input-group-btn
+          button.btn.btn-primary.btn-lg(type='submit') >
+        input(type='hidden', name='newsletter_subscription[active]', value='true')
+    .follow-us
+      p.lead Suivez-nous sur :
+      div.socials
+        a(href="https://www.facebook.com/EntourageReseauCivique")
+          img(src="images/social/facebook.png", alt="Facebook")
+        a(href="https://twitter.com/R_Entour")
+          img(src="images/social/twitter.png", alt="Twitter")
+
+block footer
+  p.text-muted
+   a(href="/contact") contact

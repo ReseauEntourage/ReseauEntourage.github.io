@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.locals.api_url = process.env.API_URL || "http://localhost:5000/";
 
 app.use('/', routes);
-app.use('/encounters', encounters);
+//app.use('/encounters', encounters);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

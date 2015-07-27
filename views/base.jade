@@ -12,25 +12,13 @@ block body
             span.icon-bar
         #navbar.collapse.navbar-collapse
           .nav.navbar-nav.navbar-center
-            h1
-              a.navbar-brand(href="#") Entourage
+             a.navbar-brand(href="/") entourage
 
-    .container-fluid.text-center
+    .container.text-center
       block before_content
       block content
-        .row
-          .col-md-6.col-md-offset-3
-            #subscribe.well
-              h2 Moi aussi, j'agis !
-              form.form-json(method="post", action=api_url + "newsletter_subscriptions.json")
-                .form-group
-                  input.form-control.input-lg(type="email", name="newsletter_subscription[email]", placeholder="Entrez votre email", required)
-                  input(type="hidden", name="newsletter_subscription[active]", value="true")
-                .form-group
-                  input.btn.btn-primary.btn-lg.btn-block(type="submit", value="Je participe !")
       block after_content
 
     footer.footer
-      block footer
-        .container
-          p.text-muted Place sticky footer content here.
+      .container-fluid.text-right
+        block footer
