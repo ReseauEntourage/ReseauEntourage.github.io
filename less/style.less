@@ -1,29 +1,40 @@
-$header-top: 70px;
+/*!
+ * Entourage
+ */
 
-/* GENERAL
------------------------*/
+html {
+  position: relative;
+  min-height: 100%;
+  background-color: @body-bg;
+}
 body {
-  padding-top: $header-top;
+  margin-bottom: @footer-height;
+  padding-top: @header-top;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: @footer-height;
+  background-color: @navbar-default-bg;
+
+  p {
+    margin: 20px 0;
+  }
 }
 
 /* HEADER
 -----------------------*/
-.navbar {
-  padding: 10px 0;
-  background: #fff;
-  text-align: center;
-}
 .navbar-center {
   float: none;
   vertical-align: top;
-  display: inline-block;
-}
-#logo {
-  height: 50px;
-}
+  text-align: center;
 
-/* BOOTSTRAP OVERRIDING
------------------------*/
+  .navbar-brand {
+    float: none;
+    line-height: @navbar-height;
+  }
+}
 
 /* GLOBAL
 -----------------------*/
@@ -49,10 +60,6 @@ body {
   text-align: center;
 }
 
-
-/* GOOGLE
------------------------*/
-
 /* EXTERNAL
 -----------------------*/
 a.twitter-share-button,
@@ -65,9 +72,9 @@ a.twitter-hashtag-button {
   border-radius: 3px;
   background: #f8f8f8 url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat;
   background: url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat,
-              -webkit-linear-gradient(#fff, #dedede);
+  -webkit-linear-gradient(#fff, #dedede);
   background: url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat,
-              linear-gradient(#fff, #dedede);
+  linear-gradient(#fff, #dedede);
   background-size: 16px 13px, auto auto;
 
   /* Text */

@@ -10,18 +10,12 @@ block body
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="#", style="padding:0;")
-            img(src="/images/logo.png", alt="Entourage logo", id="logo")
         #navbar.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href="#subscribe") J'agis
-            li
-              a(href="#about") À propos
           .nav.navbar-nav.navbar-center
-            a.navbar-brand(href="#") Entourage
+            h1
+              a.navbar-brand(href="#") Entourage
 
-    .container-fluid
+    .container-fluid.text-center
       block before_content
       block content
         .row
@@ -38,3 +32,5 @@ block body
 
     footer.footer
       block footer
+        .container
+          p.text-muted Place sticky footer content here.
