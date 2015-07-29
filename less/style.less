@@ -1,3 +1,30 @@
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Lt';
+  src: url('../fonts/HelveticaNeueLTStd-Lt.otf') format('opentype'),
+       url('../fonts/HelveticaNeueLTStd-Lt.ttf') format('truetype'),
+       url('../fonts/HelveticaNeueLTStd-Lt.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Md';
+  src: url('../fonts/HelveticaNeueLTStd-Md.otf') format('opentype'),
+       url('../fonts/HelveticaNeueLTStd-Md.ttf') format('truetype'),
+       url('../fonts/HelveticaNeueLTStd-Md.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Roman';
+  src: url('../fonts/HelveticaNeueLTStd-Roman.otf') format('opentype'),
+       url('../fonts/HelveticaNeueLTStd-Roman.ttf') format('truetype'),
+       url('../fonts/HelveticaNeueLTStd-Roman.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -6,6 +33,7 @@ html {
 body {
   margin-bottom: @footer-height;
   padding-top: @header-top;
+  font-family: 'Helvetica Neue',Helvetica,'HelveticaNeueLTStd-Roman',arial,sans-serif;
 }
 .footer {
   position: absolute;
@@ -15,7 +43,8 @@ body {
   background-color: @navbar-default-bg;
 
   p {
-    margin: 20px 0;
+    margin: 15px 0;
+    font-size: 18px;
   }
 }
 @size-socials: 45px;
