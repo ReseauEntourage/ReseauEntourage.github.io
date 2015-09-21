@@ -4,8 +4,8 @@
     <title>MyProject</title>
     <meta name="fragment" content="!">
 
-    <link rel="icon" type="image/png" href="./img/favicon.png" />
-    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
     <meta property="og:title" content="Your-project">
     <meta property="og:type" content="website">
@@ -26,8 +26,8 @@
                 locale: 'fr',
                 env: 'prod'
             };
-            var s = ['./js/main.js'], js, i = 0;
-            (!('Promise' in window) || !('pushState' in history)) && s.unshift('./js/polyfill.js');
+            var s = ['/js/main.js'], js, i = 0;
+            (!('Promise' in window) || !('pushState' in history)) && s.unshift('/js/polyfill.js');
             (function l() {
                 js = d.createElement('script');
                 js.onload = i < s.length - 1?l:null;
