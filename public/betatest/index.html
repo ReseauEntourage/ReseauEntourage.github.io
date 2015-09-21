@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyProject</title>
+    <meta name="fragment" content="!">
+
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+    <meta property="og:title" content="Your-project">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.danparis.fr">
+    <meta property="og:image" content="http://www.danparis.fr/images/thumb.jpg">
+    <meta property="og:description" content="Your-description">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=yes">
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        (function(d, w) {
+            w.config = {
+                path: '/',
+                locales: ['en','fr'],
+                locale: 'fr',
+                env: 'prod'
+            };
+            var s = ['/js/main.js'], js, i = 0;
+            (!('Promise' in window) || !('pushState' in history)) && s.unshift('/js/polyfill.js');
+            (function l() {
+                js = d.createElement('script');
+                js.onload = i < s.length - 1?l:null;
+                js.src = s[i++];
+                d.body.appendChild(js);
+            })();
+        })(document, window);
+    </script>
+</body>
+</html>
