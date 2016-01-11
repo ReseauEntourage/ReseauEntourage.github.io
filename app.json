@@ -1,0 +1,13 @@
+{
+  "name": "entourage-front-public",
+  "scripts": {
+  },
+  "env": {
+    "API_URL": {
+      "required": true
+    }
+  },
+  "addons": [
+
+  ]
+}
