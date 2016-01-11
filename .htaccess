@@ -1,5 +1,5 @@
 RewriteEngine On
-Redirect 301 /CGU.html https://entourage-back.herokuapp.com/cgu
+Redirect 301 /cgu https://entourage-back.herokuapp.com/cgu
 
 # ----------------------------------------------------------------------
 # Start rewrite engine
