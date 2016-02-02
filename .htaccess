@@ -1,5 +1,6 @@
 RewriteEngine On
 Redirect 301 /cgu https://entourage-back.herokuapp.com/cgu
+Redirect 301 /asso http://asso.entourage.social
 
 # ----------------------------------------------------------------------
 # Start rewrite engine
@@ -53,7 +54,7 @@ Redirect 301 /cgu https://entourage-back.herokuapp.com/cgu
     Header set Access-Control-Allow-Origin "*"
     Header set Access-Control-Allow-Credentials true
     Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
-    Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"    
+    Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 </IfModule>
 
 # ----------------------------------------------------------------------
