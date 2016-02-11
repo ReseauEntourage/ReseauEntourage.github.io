@@ -1,6 +1,8 @@
 RewriteEngine On
 Redirect 301 /cgu https://entourage-back.herokuapp.com/cgu
 Redirect 301 /asso http://asso.entourage.social
+Redirect 301 /blog http://blog.entourage.social
+Redirect 301 /admin https://admin.entourage.social
 
 # ----------------------------------------------------------------------
 # Start rewrite engine
