@@ -1,1 +1,11 @@
-{"sponsors":[{"alt":"atlays-logo","img":"atlays-logo.png","name":"atlays","url":"http://www.atlays.com/"},{"alt":"blackwood-logo","img":"blackwood-logo.png","name":"blackwood","url":"http://blckwd.com/"},{"alt":"caritas-logo","img":"caritas-logo.png","name":"caritas","url":"http://www.fondationcaritasfrance.org/"},{"alt":"rezosocial-logo","img":"rezosocial-logo.png","name":"rezosocial","url":"http://rezosocial.org/"},{"alt":"octo-logo","img":"octo-logo.png","name":"octo","url":"http://www.octo.com/fr"},{"alt":"tbwa-logo","img":"tbwa-logo.png","name":"tbwa","url":"http://www.tbwa-paris.com/ "},{"alt":"fondation-humain-dans-la-ville-logo","img":"fondation-logo.png","name":"fondation"}]}
+{"sponsors":[
+  {"alt":"atlays-logo","img":"atlays-logo.png","name":"atlays","url":"http://www.atlays.com/"},
+  {"alt":"blackwood-logo","img":"blackwood-logo.png","name":"blackwood","url":"http://blckwd.com/"},
+  {"alt":"caritas-logo","img":"caritas-logo.png","name":"caritas","url":"http://www.fondationcaritasfrance.org/"},
+  {"alt":"rezosocial-logo","img":"rezosocial-logo.png","name":"rezosocial","url":"http://rezosocial.org/"},
+  {"alt":"octo-logo","img":"octo-logo.png","name":"octo","url":"http://www.octo.com/fr"},
+  {"alt":"tbwa-logo","img":"tbwa-logo.png","name":"tbwa","url":"http://www.tbwa-paris.com/ "},
+  {"alt":"CA-Indosuez","img":"ca-indo.png","name":"indosuez","url":"https://www.ca-indosuez.com/france/fr/Indosuez-en-France/La-fondation-Indosuez"},
+  {"alt":"Fondation-Bettencourt-Schueller","img":"fondation_bettencourt_schueller.jpg","name":"fondationbs","url":"http://www.fondationbs.org/"},
+  {"alt":"fondation-humain-dans-la-ville-logo","img":"fondation-logo.png","name":"fondation"}
+]}
