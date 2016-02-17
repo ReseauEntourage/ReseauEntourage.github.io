@@ -43,10 +43,9 @@ Redirect 301 /admin https://admin.entourage.social
 
 <IfModule mod_rewrite.c>
   RewriteCond %{REQUEST_FILENAME} ^robots\.txt
-  RewriteRule ^(.*)$ /robots.txt [QSA,L]
+  RewriteRule ^(.*)$ - [R=404,L]
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !^robots\.txt
   RewriteRule ^(.*)$ /index.php [QSA,L]
 </IfModule>
 
