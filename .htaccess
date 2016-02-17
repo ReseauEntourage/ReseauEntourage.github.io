@@ -29,19 +29,21 @@ Redirect 301 /admin https://admin.entourage.social
 # SEO Google escaped fragment
 # ----------------------------------------------------------------------
 
-<ifModule mod_rewrite.c>
-    RewriteCond %{QUERY_STRING} ^_escaped_fragment_=$
-    RewriteRule ^$ /seo/index.html [QSA,L]
-    RewriteCond %{QUERY_STRING} ^_escaped_fragment_=$
-    RewriteCond %{REQUEST_URI} !^.*\.html$
-    RewriteRule ^(.*)$ /seo/$0.html [QSA,L]
-</ifModule>
+# <ifModule mod_rewrite.c>
+#     RewriteCond %{QUERY_STRING} ^_escaped_fragment_=$
+#     RewriteRule ^$ /seo/index.html [QSA,L]
+#     RewriteCond %{QUERY_STRING} ^_escaped_fragment_=$
+#     RewriteCond %{REQUEST_URI} !^.*\.html$
+#     RewriteRule ^(.*)$ /seo/$0.html [QSA,L]
+# </ifModule>
 
 # ----------------------------------------------------------------------
 # Pushstate
 # ----------------------------------------------------------------------
 
 <IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_URI} ^/robots.txt
+  RewriteRule ^(.*)$ /robots.php [QSA,L]
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ /index.php [QSA,L]
