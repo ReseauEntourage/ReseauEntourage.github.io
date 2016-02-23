@@ -213,19 +213,6 @@ body, p, h1, h2, h3, h4 {
   color: #FFF;
 }
 
-
-/* mobile */
-.nav-bordered.nav-stacked > li.active > a, .nav-bordered.nav-stacked > li.active > a:hover, .nav-bordered.nav-stacked > li.active > a:focus {
-    border-left-color: #EF662F;
-}
-
-.nav-bordered > li.active > a, .nav-bordered > li.active > a:hover, .nav-bordered > li.active > a:focus {
-    font-weight: 700;
-    color: #EF662F;
-    border-bottom-color: #2595FF;
-}
-
-
 .video-youtube {
   height: 360px;
 }
@@ -240,4 +227,69 @@ body, p, h1, h2, h3, h4 {
 
 .video-youtube iframe {
   border:none;
+}
+
+.carousel-light .carousel-indicators .active {
+    border: 1px solid #EF662F;
+}
+
+.nav-bordered > li > a:hover, .nav-bordered > li > a:focus {
+    color: #EF662F;
+    background-color: transparent;
+}
+
+/* mobile */
+.nav-bordered.nav-stacked > li.active > a, .nav-bordered.nav-stacked > li.active > a:hover, .nav-bordered.nav-stacked > li.active > a:focus {
+    border-left-color: #EF662F;
+}
+
+.nav-bordered > li.active > a, .nav-bordered > li.active > a:hover, .nav-bordered > li.active > a:focus {
+    font-weight: 700;
+    color: #EF662F;
+    border-bottom-color: #EF662F;
+}
+
+/* font */
+@font-face {
+    font-family: 'viadeo';
+    src:
+        url('../fonts/viadeo.ttf?j5jsie') format('truetype'),
+        url('../fonts/viadeo.woff?j5jsie') format('woff'),
+        url('../fonts/viadeo.svg?j5jsie#viadeo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'viadeo' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fa-viadeo:before {
+    content: "\e900";
+}
+
+/* video hp */
+
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
+@media only screen and (max-width: 960px) {
+  #bgvid { display:none; }
+}
+
+.h1.block-title, h1.block-title {
+  font-weight: 900;
 }

@@ -49,7 +49,7 @@
 
   <!-- header -->
   <div class="block block-inverse block-fill-height-video text-center app-header"
-       style="background-image: url(assets/img/video_entourage.jpg);">
+       style="background-image: url(assets/video/video_entourage.jpg);">
     <!-- nav -->
     <nav class="navbar navbar-transparent navbar-fixed-top navbar-padded app-navbar p-t-s">
       <div class="container">
@@ -119,7 +119,9 @@
       <h1 class="block-title">Un peu de chaleur humaine avec Entourage.</h1>
     </div>
     <div class="block-background">
-      <!-- video -->
+     <video autoplay poster="assets/video/video_entourage.jpg" id="bgvid" loop>
+      <source src="assets/video/video_entourage.mp4" type="video/mp4">
+      </video>
     </div>
     </div>
   </div>
@@ -128,7 +130,7 @@
   <div class="block block-secondary">
     <div class="container">
       <div class="row app-align-center">
-        <div class="col-sm-5 hidden-xs">
+        <div class="col-sm-7 hidden-xs">
           <blockquote class="color pull-quote">
             <p class="m-t-0">“J’aimerais lui parler mais je ne sais pas quoi lui dire”</p>
           </blockquote>
@@ -152,7 +154,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-5 col-sm-push-7 text-center p-t-md">
+        <div class="col-sm-5 col-sm-push-7 text-center p-t-md  p-b-md">
           <img src="assets/img/interet_general.png" class="asso-label" alt="Entourage, association d'intérêt général">
         </div>
         <div class="col-sm-6 col-sm-pull-5">
@@ -287,7 +289,7 @@
     </div>
   </div>
 
-  <!-- Foundations -->
+  <!-- Partners -->
   <div class="block">
     <div class="container">
       <div class="row">
@@ -300,17 +302,21 @@
           <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
           <li data-target="#carousel-example-generic-2" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic-2" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img src="assets/img/partenaires/1.jpg" alt="First slide">
-          </div>
-          <!--<div class="item">
-            <img src="http://placehold.it/1140x500/fff/333" alt="Second slide">
+            <img src="assets/img/partenaires/1.jpg" alt="Entourage, Partenaires">
           </div>
           <div class="item">
-            <img src="http://placehold.it/1140x500/fff/333" alt="Third slide">
-          </div>-->
+            <img src="assets/img/partenaires/2.jpg" alt="Entourage, Partenaires">
+          </div>
+          <div class="item">
+            <img src="assets/img/partenaires/3.jpg" alt="Entourage, Partenaires">
+          </div>
+          <div class="item">
+            <img src="assets/img/partenaires/4.jpg" alt="Entourage, Partenaires">
+          </div>
         </div>
      
       </div>
@@ -383,7 +389,7 @@
               <a href="https://www.linkedin.com/company/asso" title="LinkedIn Entourage" target="_blank">LinkedIn</a>
             </li>
             <li class="text-muted">
-              <span class="icon icon-circle"></span>
+              <span class="icon-fa-viadeo"></span>
               <a href="http://fr.viadeo.com/fr/company/entourage1" title="Viadeo Entourage" target="_blank">Viadeo</a>
             </li>
           </ul>
