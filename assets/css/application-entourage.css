@@ -11,17 +11,26 @@
   color: #EF662F;
 }
 
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #EF662F;
+}
+
 .btn-primary,
 .btn-primary:visited,
 .btn-primary:focus,
 .btn-primary:active {
   background-color: #EF662F;
   border-color: #EF662F;
+  color: #fff;
 }
 
 .btn-primary:hover {
   background-color: #F38652;
   border-color: #F38652;
+  color: #fff;
 }
 
 .btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
@@ -205,8 +214,29 @@ blockquote.color {
 }
 }
 
-body, p, h1, h2, h3, h4 {
-  font-family: 'Lato', sans-serif;
+body, p, .block .lead {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: normal;
+  line-height: 1.65;
+}
+
+.block h1, .block h2, .block h3, .block h4, .block h5, .block h6,
+.block .block-inverse h1, .block .block-inverse h2, .block .block-inverse h3, .block .block-inverse h4, .block .block-inverse h5, .block .block-inverse h6  {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h2,
+.block h2,
+.block-inverse h2{
+  font-size: 46px;
+  font-weight: 100;
+}
+
+.block-lead {
+  text-align: left;
 }
 
 .pull-quote > cite {
@@ -290,9 +320,61 @@ video {
   #bgvid { display:none; }
 }
 
+@media (max-width: 768px) {
+.value.block .lead,
+ .value.block h4{
+    text-align: center;
+}
+}
+
 .h1.block-title, h1.block-title {
   font-weight: 900;
 }
-#copyright{
-   text-align: center;
- }
+
+
+.pull-quote {
+    max-width: 100%; 
+}
+
+.h1.block-title, h1.block-title {
+    font-weight: 500;
+}
+
+.text-italic {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.h3 {
+  font-size: 28px;
+}
+
+.navbar {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.app-footer {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.iconlist > li {
+  color: #000;
+}
+
+.vision {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-inverse .btn-outline:hover:hover,
+.block-inverse .btn-outline:visited:visited {
+  color: #FFF;
+}
+
+.block.product {
+  padding-bottom: 0;
+}
