@@ -210,10 +210,17 @@
         <div class="col-sm-5 col-sm-push-7">
           <div class="lead">
             <strong class="orange">Sortie en Juin 2016 ! </strong>
+            <form role="form" class="material" method="POST" action="<%= @messages_form_url %>">
             <p class="lead m-b-0 p-b-s">Je veux rester informé :</p>
-            <button class="btn btn-primary w-full">Je m’abonne à la newsletter</button>
-            <p class="lead m-b-0 p-b-s m-t">Je veux essayer :</p>
-            <button class="btn btn-primary w-full">Je deviens béta-testeur</button>
+              <div class="form-group">
+                <div class="input-field">
+                  <input required class="form-control" id="contact_form-email" name="email" type="email"  placeholder="adresse@email.com">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-submit btn-primary center-block">Je m’abonne à la newsletter</button>
+            </form>
+            <!--<p class="lead m-b-0 p-b-s m-t">Je veux essayer :</p>
+            <button class="btn btn-primary w-full">Je deviens béta-testeur</button>-->
           </div>
         </div>
         <div class="col-sm-6 col-sm-pull-5">
@@ -329,14 +336,6 @@
       <div class="row">
         <div class="col-sm-3 m-b-md">
           <ul class="list-unstyled list-spaced">
-            <li class="m-b"><h6 class="text-uppercase">Entourage</h6></li>
-            <li class="text-muted">
-              Entourage 2016
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-2 col-sm-offset-1 m-b-md">
-          <ul class="list-unstyled list-spaced">
             <li class="m-b"><h6 class="text-uppercase">A propos</h6></li>
             <li class="text-muted">
               <a href="./partenaires.html" title="Entourage, partenaires">Partenaires</a>
@@ -349,18 +348,18 @@
             </li>
           </ul>
         </div>
-        <div class="col-sm-2 m-b-md">
+        <div class="col-sm-3 m-b-md">
           <ul class="list-unstyled list-spaced">
             <li class="m-b"><h6 class="text-uppercase">Support</h6></li>
             <li class="text-muted">
               <a target="_blank" href="mailto:contact@entourage.social" title="Contacter Entourage">Nous contacter</a>
             </li>
             <li class="text-muted">
-              <a href="assets/pdf/charteutilisateur-ntouragepro.pdf" title="Entourage, charte utlisateur" target="_blank">Charte utilisateur</a>
+              <a href="https://s3-eu-west-1.amazonaws.com/entourage-ressources/charte.pdf" title="Entourage, charte utlisateur" target="_blank">Charte utilisateur</a>
             </li>
           </ul>
         </div>
-        <div class="col-sm-2 m-b-md">
+        <div class="col-sm-3 m-b-md">
           <ul class="list-unstyled list-spaced">
             <li class="m-b"><h6 class="text-uppercase">Retrouvez-nous</h6></li>
             <li class="text-muted">
@@ -373,7 +372,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-sm-2 m-b-md">
+        <div class="col-sm-3 m-b-md">
           <ul class="list-unstyled list-spaced">
             <li class="m-b"><h6 class="text-uppercase">Suivez-nous !</h6></li>
             <li class="text-muted">
@@ -393,6 +392,11 @@
               <a href="http://fr.viadeo.com/fr/company/entourage1" title="Viadeo Entourage" target="_blank">Viadeo</a>
             </li>
           </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div id="copyright" class="col-sm">
+            Copyright © Entourage 2016
         </div>
       </div>
     </div>

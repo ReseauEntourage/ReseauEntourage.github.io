@@ -293,3 +293,6 @@ video {
 .h1.block-title, h1.block-title {
   font-weight: 900;
 }
+#copyright{
+   text-align: center;
+ }
