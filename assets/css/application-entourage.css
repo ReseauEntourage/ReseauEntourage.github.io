@@ -1,0 +1,380 @@
+/* extend tools */
+.p-t-s {
+  padding-top: 10px;
+}
+
+.p-b-s {
+  padding-bottom: 10px;
+}
+
+.orange {
+  color: #EF662F;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: #EF662F;
+}
+
+.btn-primary,
+.btn-primary:visited,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #EF662F;
+  border-color: #EF662F;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #F38652;
+  border-color: #F38652;
+  color: #fff;
+}
+
+.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
+  background-color: #F38652;
+  border-color: #F38652;
+}
+
+
+
+/* nav scroll */
+#navbar {
+  position:fixed;
+  top:0px;
+  width:100%; 
+  background-color: white;
+  z-index:9999;
+  display: none;
+  border-bottom: solid 1px #e4e4e4;
+}
+
+#navbar a {
+  color: #2D3238;
+}
+
+.navbar-nav > li > a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* bloquote */
+blockquote.color {
+  color: #EF662F;
+}
+
+/* header *//* video */
+.block-fill-height-video {
+    display: table;
+    width: 100%;
+    height: 70vh;
+}
+
+.app-header {
+  min-height: 550px;
+}
+
+/* header *//* logo */
+.logo {
+  width: 50px;
+}
+
+/* navbar */
+.app-navbar {
+  font-weight: 500;
+  letter-spacing: .05em;
+  position: absolute;
+}
+
+/* code block */
+.app-color-block {
+  background-color: #a5a59c;
+  overflow: hidden;
+}
+
+.app-color-block-orange {
+  background-color: #EF662F;
+}
+
+@media (min-width: 768px) {
+  .app-color {
+    width: 600px;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 992px) {
+  .app-color {
+    padding: 50px;
+    font-size: 15px;
+  }
+}
+
+/* pull quote block */
+.app-high-praise img {
+  width: 100%;
+}
+
+/* brand ribbon block */
+.app-ribbon {
+  background: #FFF;
+}
+.app-ribbon-color {
+  background: #EF662F;
+}
+.app-ribbon .container {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: -30px;
+}
+.app-ribbon img {
+  margin: 0 10px 30px;
+}
+
+.app-ribbon-color h3 {
+  color: #FFFFFF;
+}
+
+/* marketing grid block */
+.app-block-marketing-grid .container {
+  margin-bottom: -60px;
+}
+.app-marketing-grid .m-b {
+  margin-bottom: 10px !important;
+}
+@media (max-width: 768px) {
+  .app-marketing-grid .m-b-lg {
+    margin-bottom: 40px !important;
+  }
+}
+
+/* footer block */
+.app-footer {
+  background-color: #a5a59c;
+}
+.app-footer a {
+  color: #fff;
+}
+
+/* general block overrrides */
+@media (max-width: 768px) {
+  .block .lead {
+    line-height: 1.3;
+  }
+  .block h3 {
+    line-height: 1.15;
+  }
+}
+
+/* general inverse overrides */
+.block-inverse .text-muted {
+  color: rgba(255, 255, 255, .7);
+}
+.block-inverse .block-bg-img {
+  background-color: transparent;
+}
+
+/* general btn overrides */
+.btn-lg {
+  font-size: 18px;
+}
+.block-secondary .btn-lg {
+  width: 100%;
+}
+.btn-lg:not(.btn-block) {
+  padding: 12px 50px;
+}
+@media (min-width: 768px) {
+  .btn-lg:not(.btn-block) {
+    width: auto;
+  }
+}
+
+/* ie10+ */
+@media (min-width: 768px) {
+  .app-align-center {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.pull-quote > p {
+  font-size: 34px;
+}
+
+.asso-label {
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+.block {
+    padding: 75px 0;
+}
+}
+
+body, p, .block .lead {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: normal;
+  line-height: 1.65;
+}
+
+.block h1, .block h2, .block h3, .block h4, .block h5, .block h6,
+.block .block-inverse h1, .block .block-inverse h2, .block .block-inverse h3, .block .block-inverse h4, .block .block-inverse h5, .block .block-inverse h6  {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h2,
+.block h2,
+.block-inverse h2{
+  font-size: 46px;
+  font-weight: 100;
+}
+
+.block-lead {
+  text-align: left;
+}
+
+.pull-quote > cite {
+  color: #FFF;
+}
+
+.video-youtube {
+  height: 360px;
+}
+
+.map-entourage {
+  width: 460px;
+}
+
+.block img {
+  max-width: 100%;
+}
+
+.video-youtube iframe {
+  border:none;
+}
+
+.carousel-light .carousel-indicators .active {
+    border: 1px solid #EF662F;
+}
+
+.nav-bordered > li > a:hover, .nav-bordered > li > a:focus {
+    color: #EF662F;
+    background-color: transparent;
+}
+
+/* mobile */
+.nav-bordered.nav-stacked > li.active > a, .nav-bordered.nav-stacked > li.active > a:hover, .nav-bordered.nav-stacked > li.active > a:focus {
+    border-left-color: #EF662F;
+}
+
+.nav-bordered > li.active > a, .nav-bordered > li.active > a:hover, .nav-bordered > li.active > a:focus {
+    font-weight: 700;
+    color: #EF662F;
+    border-bottom-color: #EF662F;
+}
+
+/* font */
+@font-face {
+    font-family: 'viadeo';
+    src:
+        url('../fonts/viadeo.ttf?j5jsie') format('truetype'),
+        url('../fonts/viadeo.woff?j5jsie') format('woff'),
+        url('../fonts/viadeo.svg?j5jsie#viadeo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'viadeo' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fa-viadeo:before {
+    content: "\e900";
+}
+
+/* video hp */
+
+video {
+  width: 100%    !important;
+  height: auto   !important;
+}
+
+@media only screen and (max-width: 960px) {
+  #bgvid { display:none; }
+}
+
+@media (max-width: 768px) {
+.value.block .lead,
+ .value.block h4{
+    text-align: center;
+}
+}
+
+.h1.block-title, h1.block-title {
+  font-weight: 900;
+}
+
+
+.pull-quote {
+    max-width: 100%; 
+}
+
+.h1.block-title, h1.block-title {
+    font-weight: 500;
+}
+
+.text-italic {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.h3 {
+  font-size: 28px;
+}
+
+.navbar {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.app-footer {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.iconlist > li {
+  color: #000;
+}
+
+.vision {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-inverse .btn-outline:hover:hover,
+.block-inverse .btn-outline:visited:visited {
+  color: #FFF;
+}
+
+.block.product {
+  padding-bottom: 0;
+}
