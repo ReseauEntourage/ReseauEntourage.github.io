@@ -11,7 +11,7 @@ $(document).ready(function(){
           $('#newsletter-success').show();
         },
         error: function(){
-          alert("Votre requête n'a pu aboutir, vérifier le format de l'email");
+          alert("Votre requête n'a pu aboutir, vérifiez le format de l'email");
         }
       });
     });
