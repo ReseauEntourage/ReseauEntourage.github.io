@@ -1,4 +1,5 @@
-$(document).ready(function(){           
+$(document).ready(function(){
+  $('#newsletter-success').hide();      
   $('#subscribe-newsletter').click(function() {
     var email = $('#newslettermail').val();
     $.ajax({
