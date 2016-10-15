@@ -1,8 +1,7 @@
-(function($) {          
-$(document).ready(function(){           
+$(document).ready(function(){
   $('#newsletter-success').hide();
     $('#subscribe-newsletter').click(function() {
-      var email = $('#newlettermail').val();
+      var email = $('#newslettermail').val();
       $.ajax({
         type: "POST",
         url: "https://api.entourage.social/api/v1/newsletter_subscriptions",
@@ -16,4 +15,3 @@ $(document).ready(function(){
       });
     });
 });
-})(jQuery);
