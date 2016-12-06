@@ -13,4 +13,5 @@ $(document).ready(function(){
         alert("Votre requête n'a pu aboutir, vérifiez le format de l'email");
       }
     });
+  });
 });
