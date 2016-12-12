@@ -82,8 +82,19 @@ $(function () {
       })
 
       setTimeout(function () {
-        $('body').scrollspy('refresh')
+        $('body').scrollspy('refresh');
+        
       }, 1000)
     }
   }
+
+  $('body').addClass('with-overlay');
+  $('.close-overlay').on('click', function(){
+    $('#overlay').fadeOut();
+    $('body').removeClass('with-overlay');
+  });
+
+  setTimeout(function () {
+    $('body').scrollTop(0);
+  }, 3000);
 })
