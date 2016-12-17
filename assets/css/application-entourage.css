@@ -96,9 +96,9 @@ body.with-overlay #overlay {
 }
 
 #overlay .need-you-bg {
-  height: 360px;
-  background: url(../img/needU.jpg) no-repeat;
-  background-position: center center;
+  height: 484px;
+  background: url(../img/thanks.jpg) no-repeat;
+  background-position: 0 -34px;
   background-size: cover;
 }
 
