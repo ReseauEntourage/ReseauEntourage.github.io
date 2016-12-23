@@ -46,6 +46,69 @@ body.with-overlay #overlay {
   display: table;
 }
 
+#join-band {
+  display: block;
+  text-align: center;
+  margin: 60px 0;
+}
+
+#join-band .entourage-card {
+  display: inline-block;
+  max-width: 750px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0 0 9px rgba(0,0,0,0.2);
+}
+
+#join-band .entourage-name {
+  padding: 10px 10px 20px;
+  margin-top: 0px;
+  margin-bottom: -17px;
+  background: #f1f1f1;
+}
+
+#join-band .entourage-info {
+  background: #fff;
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+#join-band .entourage-description {
+  padding: 0 40px 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+#join-band .entourage-info .user-picture {
+  width: 20px;
+  border-radius: 100%;
+  margin-right: 7px;
+}
+
+#join-band .join {
+  color: #333;
+}
+
+#join-band .buttons {
+  margin-top: 20px;
+}
+
+#join-band .buttons a {
+  display: inline-block;
+}
+
+#join-band .buttons a:first-child {
+  margin-right: 20px;
+}
+
+#join-band .buttons img {
+  width: 170px;
+}
+
 #overlay {
   position: absolute;
   top: 0;
@@ -540,6 +603,12 @@ video {
   .video-youtube,
   .newsletter  {
     width: 100%;
+  }
+
+  #join-band .entourage-card {
+    max-width: inherit;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   #overlay .content {
