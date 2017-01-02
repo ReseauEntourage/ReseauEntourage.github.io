@@ -88,7 +88,9 @@ $(function () {
     }
   }
 
-  $('body').addClass('with-overlay');
+  /*** OVERLAY ***/
+  
+  /*$('body').addClass('with-overlay');
   $('.close-overlay').on('click', function(){
     $('#overlay').fadeOut();
     $('body').removeClass('with-overlay');
@@ -97,4 +99,5 @@ $(function () {
   setTimeout(function () {
     $('body').scrollTop(0);
   }, 3000);
+  */
 })
