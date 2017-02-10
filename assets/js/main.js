@@ -42,6 +42,7 @@ $(function () {
 
     $('.navbar-toggle').on('click', function(){
       $band.toggle();
+      $('body').scrollTop(0);
     });
   }
 

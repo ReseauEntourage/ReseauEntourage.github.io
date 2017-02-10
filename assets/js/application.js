@@ -1,7 +1,18 @@
 
-// back to top button - docs
+// *** All pages JS *** //
+
 $(function () {
 
+  // Fixed navbar //
+  $(window).scroll(function(){            
+    if ($(this).scrollTop() > 200) {
+      $('#navbar').fadeIn(500);
+    } else {
+      $('#navbar').fadeOut(500);
+    }
+  });
+
+  // ??? //
   if ($('.docs-top').length) {
     _backToTopButton()
     $(window).on('scroll', _backToTopButton)
@@ -14,7 +25,7 @@ $(function () {
     }
   }
 
-  // doc nav js
+  // doc nav js (???) //
   var $toc    = $('#markdown-toc')
   var $window = $(window)
 
