@@ -5,7 +5,7 @@ $(function () {
 
   // Fixed navbar //
   $(window).scroll(function(){            
-    if ($(this).scrollTop() > 200) {
+    if ($(this).scrollTop() > ($('#stage').offset().top + 200)) {
       $('#navbar').fadeIn(500);
     } else {
       $('#navbar').fadeOut(500);

@@ -24,20 +24,37 @@ $(function () {
   var entourageToken = getUrlParameter('entourageToken');
   if (entourageToken) {
     $band = $('#join-band');
-    $band.find('.entourage-name').text('"Manger avec Pierre"');
-    $band.find('.created-time').text('25 décembre');
-    $band.find('.user-picture').attr('src', 'https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/1375097_219352668225071_1544888449_n.jpg?oh=d00365819316d803419f7760f9394620&oe=58EE4B94');
-    $band.find('.entourage-description').text('"Des personnes SDF de l\'association La Bagagerie mains libres cherchent des tentes et des matelas gonflables !"');
-    $band.find('.user-name').text('Augustin');
-    $band.slideDown();
-    $.get( "https://api.entourage.social/api/v1/public/entourage.json?token=" + entourageToken, function({entourage}) {
+    $.get( "https://entourage-back-preprod.herokuapp.com/api/v1/public/entourages/" + entourageToken, function({entourage}) {
       $band = $('#join-band');
-      $band.find('.entourage-name').text('"' + entourage.title +'"');
-      $band.find('.created-time').text(entourage.created_at);
-      $band.find('.user-picture').attr('src', entourage.author.avatar_url);
-      $band.find('.entourage-description').text('"' + entourage.description +'"');
-      $band.find('.user-name').text(entourage.author.display_name);
-      $band.slideDown();
+
+      var html = '<div class="entourage-card">';
+      html += '<h1 class="entourage-name">' + entourage.title + '</h1>';
+      html += '<p class="entourage-info">';
+      html += '<span class="created-time">' + entourage.created_at + '</span> - ';
+      //if (entourage.author.avatar_url)
+      //  html += '<img class="user-picture" src="' + entourage.author.avatar_url + '"/>';
+      html += '<span class="user-name">' + entourage.author.display_name + '</span>';
+      html += '</p>';
+
+      if (entourage.description.length)
+        html += '<p class="entourage-description">' + entourage.description + '</p>';
+
+      html += '</div>';
+      html += '<p class="join">Rejoignez <b class="user-name">' + entourage.author.display_name + '</b> dans son initiative en téléchargeant l\'application Entourage !</p>';
+      html += '<div class="buttons">';
+      html += '<a href="https://itunes.apple.com/fr/app/entourage-reseau-civique/id1072244410?mt=8" target="_blank" title="Télécharger sur l\'App Store d\'Apple">';
+      html += '<img src="assets/img/download-iphone.png" alt="L\'application Entourage est disponible sur Iphone">';
+      html += '</a>';
+      html += '<a href="https://play.google.com/store/apps/details?id=social.entourage.android" target="_blank" title="Télécharger sur Google Play">';
+      html += '<img src="assets/img/download-android.png" alt="L\'application Entourage est disponible sur Android">';
+      html += '</a>';
+      html += '</div><a class="close-band">X Fermer</a>';
+      html += '</div>';
+
+      $band.html(html).slideDown();
+      $band.find('a.close-band').on('click', function(){
+        $band.slideUp();
+      });
     });
 
     $('.navbar-toggle').on('click', function(){
