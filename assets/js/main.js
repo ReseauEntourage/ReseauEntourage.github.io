@@ -27,20 +27,23 @@ $(function () {
     $.get( "https://entourage-back-preprod.herokuapp.com/api/v1/public/entourages/" + entourageToken, function({entourage}) {
       $band = $('#join-band');
 
-      var html = '<div class="entourage-card">';
+      var html = '<p class="need-you"><b class="user-name">' + entourage.author.display_name + '</b> a besoin de toi !</p>';
+      html += '<div class="entourage-card">';
       html += '<h1 class="entourage-name">' + entourage.title + '</h1>';
       html += '<p class="entourage-info">';
-      html += '<span class="created-time">' + entourage.created_at + '</span> - ';
-      //if (entourage.author.avatar_url)
-      //  html += '<img class="user-picture" src="' + entourage.author.avatar_url + '"/>';
+      if (entourage.author.avatar_url)
+        html += '<i class="user-picture" style="background-image: url(' + entourage.author.avatar_url + ')"></i>';
       html += '<span class="user-name">' + entourage.author.display_name + '</span>';
+      html += '<span class="created-time"> - ' + entourage.created_at + '</span>';
+      if (entourage.approximated_location)
+        html += ', <span>' + entourage.approximated_location + '</span>';
       html += '</p>';
 
       if (entourage.description.length)
         html += '<p class="entourage-description">' + entourage.description + '</p>';
 
       html += '</div>';
-      html += '<p class="join">Rejoignez <b class="user-name">' + entourage.author.display_name + '</b> dans son initiative en téléchargeant l\'application Entourage !</p>';
+      html += '<p class="join">Rejoins dès maintenant son action solidaire en téléchargeant l\'application Entourage !</p>';
       html += '<div class="buttons">';
       html += '<a href="https://itunes.apple.com/fr/app/entourage-reseau-civique/id1072244410?mt=8" target="_blank" title="Télécharger sur l\'App Store d\'Apple">';
       html += '<img src="assets/img/download-iphone.png" alt="L\'application Entourage est disponible sur Iphone">';

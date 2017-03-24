@@ -11,6 +11,10 @@
   color: #EF662F;
 }
 
+.row {
+  margin: 0;
+}
+
 a,
 a:hover,
 a:active,
@@ -53,6 +57,11 @@ body.with-overlay #overlay {
   box-shadow: inset 0px -17px 8px -14px rgba(0,0,0,0.3);
 }
 
+#join-band .need-you {
+  font-size: 24px;
+  color: #333;
+}
+
 #join-band .entourage-card {
   display: inline-block;
   max-width: 750px;
@@ -71,9 +80,10 @@ body.with-overlay #overlay {
 }
 
 #join-band .entourage-info {
+  position: relative;
   background: #fff;
   display: inline-block;
-  padding: 1px 10px;
+  padding: 1px 10px 0;
   border-radius: 3px;
   font-size: 13px;
 }
@@ -84,10 +94,17 @@ body.with-overlay #overlay {
   color: #333;
 }
 
-#join-band .entourage-info .user-picture {
-  width: 20px;
+#join-band .user-picture {
+  position: absolute;
+  top: -3px;
+  left: -24px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  background-color: #e4e4e4;
+  background-size: cover;
   border-radius: 100%;
-  margin-right: 7px;
+  box-shadow: 0 0 0 2px #fff;
 }
 
 #join-band .user-name {
@@ -245,6 +262,7 @@ blockquote.color {
 
 .app-header {
   min-height: 550px;
+  background-image: url(../video/video_entourage.jpg);
 }
 
 /* header *//* logo */
@@ -360,10 +378,6 @@ blockquote.color {
   }
 }
 
-.pull-quote > p {
-  font-size: 34px;
-}
-
 .asso-label {
   width: 200px;
   height: 200px;
@@ -417,8 +431,18 @@ b {
   text-align: left;
 }
 
+.pull-quote {
+    max-width: 100%; 
+}
+
+.pull-quote > p {
+  font-size: 34px;
+  line-height: 34px;
+}
+
 .pull-quote > cite {
   color: #FFF;
+  margin-top: 20px;
 }
 
 .map-entourage {
@@ -445,36 +469,6 @@ b {
     border-bottom-color: #EF662F;
 }
 
-/* font */
-@font-face {
-    font-family: 'viadeo';
-    src:
-        url('../fonts/viadeo.ttf?j5jsie') format('truetype'),
-        url('../fonts/viadeo.woff?j5jsie') format('woff'),
-        url('../fonts/viadeo.svg?j5jsie#viadeo') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'viadeo' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-fa-viadeo:before {
-    content: "\e900";
-}
-
 /* video hp */
 
 video {
@@ -486,10 +480,6 @@ video {
   #bgvid {
     display:none;
   }
-}
-
-.pull-quote {
-    max-width: 100%; 
 }
 
 .navbar {
@@ -547,6 +537,17 @@ video {
   padding-bottom: 0;
 }
 
+.simple-comme-bonjour .btn-primary {
+  margin-top: 20px;
+  background-color: #fff;
+  border-color: #fff;
+  color: #EF662F;
+}
+
+.simple-comme-bonjour .livret {
+  box-shadow: 5px 4px 0px rgba(0,0,0,0.3);
+}
+
 .vision p strong {
   display: block;
   margin-top: 30px;
@@ -598,6 +599,10 @@ video {
   border:none;
 }
 
+.citations .pull-quote:first-child {
+  margin-bottom: 60px;
+}
+
 /* MOBILE VIEW */
 
 @media (max-width: 768px) {
@@ -611,7 +616,7 @@ video {
   }
 
   .block.product {
-    padding: 50px 0;
+    padding: 50px 0 0;
   }
 
   .value.block .lead,
@@ -629,14 +634,27 @@ video {
     margin: 0;
   }
 
+  .app-screen {
+    max-width: 90%;
+  }
+
+  .download-links a:first-child {
+    margin-right: 0px;
+  }
+
   .app-color {
     width: 600px;
     margin-bottom: 0;
   }
 
   .video-youtube,
-  .newsletter  {
+  .newsletter,
+  .newsletter input {
     width: 100%;
+  }
+
+  .newsletter .btn {
+    margin-top: 10px;
   }
 
   #join-band .entourage-card {
@@ -664,6 +682,11 @@ video {
   .carousel-indicators {
       bottom: -20px;
   }
+
+  .map-entourage {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -671,4 +694,168 @@ video {
     padding: 50px;
     font-size: 15px;
   }
+}
+
+/* LANDING */
+
+#landing-band {
+  text-align: center;
+  background-image: url(../img/landing/bg.jpg);
+  background-size: 100% 100%;
+  border-bottom: 40px solid #000;
+}
+
+#landing-band:before {
+  content: "";
+  position: absolute;
+  top: 90px;
+  right: 0;
+  width: 198px;
+  height: 221px;
+  background-image: url(../img/landing/billet1.png);
+  background-size: 100%;
+}
+
+#landing-band:after {
+  content: "";
+  position: absolute;
+  top: 660px;
+  left: 0;
+  width: 240px;
+  height: 222px;
+  background-image: url(../img/landing/billet2.png);
+  background-size: 100%;
+}
+
+#landing-band .landing-title {
+  display: inline-block;
+  width: 661px;
+  height: 254px;
+  background-image: url(../img/landing/title.png);
+  margin-bottom: -20px;
+}
+
+#landing-band .landing-video iframe {
+  display: inline-block;
+  width: 720px;
+  height: 405px;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.23);
+  font-size: 0;
+}
+
+#landing-band .landing-download {
+  margin: 40px 0 80px;
+}
+
+#landing-band .landing-download-text {
+  display: inline-block;
+  width: 487px;
+  height: 216px;
+  background-image: url(../img/landing/telechargez.png);
+}
+
+#landing-band .landing-download a {
+  display: inline-block;
+  width: 255px;
+  height: 79px;
+  background-image: url(../img/landing/app-store.png);
+}
+
+#landing-band .landing-download a.android {
+  margin-left: 10px;
+  background-image: url(../img/landing/google-play.png);
+}
+
+/* MOBILE VIEW */
+
+@media (max-width: 768px) {
+  #landing-band {
+    background-size: inherit;
+    background-position: top center;
+  }
+
+  #landing-band .landing-video {
+    position: relative;
+    z-index: 1;
+  }
+
+  #landing-band:before {
+    top: -70px;
+    right: 0px;
+    width: 108px;
+    height: 122px;
+  }
+
+  #landing-band:after {
+    top: 286px;
+    left: -20px;
+    width: 130px;
+    height: 122px;
+  }
+
+  #landing-band .landing-title {
+    width: 330px;
+    height: 127px;
+    margin-bottom: 0px;
+    background-position: 50% 30%;
+    background-size: 152%;
+    background-repeat: no-repeat;
+  }
+
+  #landing-band .landing-video iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  #landing-band .landing-download {
+    margin: 10px 0 40px;
+  }
+
+  #landing-band .landing-download-text {
+    width: 330px;
+    height: 146px;
+    background-size: 100%;
+  }
+
+  #landing-band .landing-download a {
+    display: inline-block;
+    width: 255px;
+    height: 79px;
+    background-image: url(../img/landing/app-store.png);
+  }
+
+  #landing-band .landing-download a.android {
+    margin-left: 10px;
+    background-image: url(../img/landing/google-play.png);
+  }
+}
+
+/* ICON font */
+@font-face {
+    font-family: 'viadeo';
+    src:
+        url('../fonts/viadeo.ttf?j5jsie') format('truetype'),
+        url('../fonts/viadeo.woff?j5jsie') format('woff'),
+        url('../fonts/viadeo.svg?j5jsie#viadeo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'viadeo' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fa-viadeo:before {
+    content: "\e900";
 }
