@@ -621,7 +621,7 @@ video {
 
   .value.block .lead,
   .value.block h4{
-      text-align: center;
+    text-align: center;
   }
 
   .col-sm-12 p {
@@ -642,13 +642,8 @@ video {
     margin-right: 0px;
   }
 
-  .app-color {
-    width: 600px;
-    margin-bottom: 0;
-  }
-
   .livret {
-    width: 250px;
+    width: 260px;
   }
 
   .video-youtube,
@@ -684,7 +679,7 @@ video {
   }
 
   .carousel-indicators {
-      bottom: -20px;
+    bottom: -20px;
   }
 
   .map-entourage {
@@ -795,8 +790,8 @@ video {
   }
 
   #landing-band .landing-title {
-    width: 330px;
-    height: 127px;
+    width: 320px;
+    height: 117px;
     margin-bottom: 0px;
     background-position: 50% 30%;
     background-size: 152%;
@@ -813,8 +808,8 @@ video {
   }
 
   #landing-band .landing-download-text {
-    width: 330px;
-    height: 146px;
+    width: 320px;
+    height: 136px;
     background-size: 100%;
   }
 
