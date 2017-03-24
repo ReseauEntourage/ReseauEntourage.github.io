@@ -6,16 +6,10 @@ $(function () {
   var utmSource = getUrlParameter('utm_source');
 
   if (utmSource) {
-    $('.landing-download-buttons a').each(function() {
+    $('.apple-download-btn').add($('.android-download-btn')).each(function() {
       $(this).attr('href', $(this).attr('href') + utmSource);
     });
   }
-
-  var mobileOS = getMobileOperatingSystem();
-  if (mobileOS == 'iOS')
-    $('.landing-download-buttons .android').hide();
-  else if (mobileOS == 'Android')
-    $('.landing-download-buttons .apple').hide();
 
 });
 
