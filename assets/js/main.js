@@ -24,7 +24,7 @@ $(function () {
   var entourageToken = getUrlParameter('entourageToken');
   if (entourageToken) {
     $band = $('#join-band');
-    $.get( "https://entourage-back-preprod.herokuapp.com/api/v1/public/entourages/" + entourageToken, function({entourage}) {
+    $.get( "https://api.entourage.social/api/v1/public/entourages/" + entourageToken, function({entourage}) {
       $band = $('#join-band');
 
       var html = '<p class="need-you"><b class="user-name">' + entourage.author.display_name + '</b> a besoin de toi !</p>';
