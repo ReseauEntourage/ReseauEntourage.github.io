@@ -765,7 +765,7 @@ video {
   background-image: url(../img/landing/app-store.png);
 }
 
-#landing-band .landing-download a.android {
+#landing-band .landing-download a.android-download-btn {
   margin-left: 10px;
   background-image: url(../img/landing/google-play.png);
 }
@@ -784,10 +784,7 @@ video {
   }
 
   #landing-band:before {
-    top: -70px;
-    right: 0px;
-    width: 108px;
-    height: 122px;
+    display: none;
   }
 
   #landing-band:after {
@@ -808,7 +805,7 @@ video {
 
   #landing-band .landing-video iframe {
     width: 100%;
-    height: 200px;
+    height: 300px;
   }
 
   #landing-band .landing-download {
@@ -821,16 +818,8 @@ video {
     background-size: 100%;
   }
 
-  #landing-band .landing-download a {
-    display: inline-block;
-    width: 255px;
-    height: 79px;
-    background-image: url(../img/landing/app-store.png);
-  }
-
-  #landing-band .landing-download a.android {
-    margin-left: 10px;
-    background-image: url(../img/landing/google-play.png);
+  #landing-band .landing-download a.android-download-btn {
+    margin-left: 0px;
   }
 }
 
