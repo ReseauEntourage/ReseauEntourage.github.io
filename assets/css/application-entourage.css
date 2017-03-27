@@ -702,6 +702,7 @@ video {
   background-image: url(../img/landing/bg.jpg);
   background-size: 100% 100%;
   border-bottom: 40px solid #000;
+  padding: 0;
 }
 
 #landing-band:before {
@@ -770,6 +771,27 @@ video {
   background-image: url(../img/landing/google-play.png);
 }
 
+#landing-band .landing-thanks {
+  max-width: 680px;
+  margin: auto;
+  padding: 0 10px 20px;
+  color: #2D3238;
+  line-height: 26px;
+  font-size: 17px;
+}
+
+#landing-band .landing-thanks h2 {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+#landing-band .landing-thanks a {
+  font-weight: 400;
+}
+
 #landing-band.thanks {
   padding: 30px 0;
   text-align: center;
@@ -781,6 +803,7 @@ video {
 
 #landing-band.thanks h2 {
   margin: 0;
+  margin-bottom: 20px;
   padding: 0 10px;
   font-weight: bold;
   font-size: 20px;
