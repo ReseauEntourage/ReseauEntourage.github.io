@@ -441,5 +441,26 @@
     ga('create', 'UA-68872992-1', 'auto');
     ga('send', 'pageview');
   </script>
+  <script type="text/javascript">
+      function getParamValue(param,url)
+      {if (param != null)
+          {var u = url == undefined ? document.location.href : url;
+              var reg = new RegExp('(\\?|&|^)'+param+'=(.*?)(&|$)');
+              matches = u.match(reg);
+              return matches[2] != undefined ? decodeURIComponent(matches[2]).replace(/\+/g,' ') : '';
+          }
+          else
+          {return param;}
+      }
+  var ur= window.location.href;
+  var mavar="";
+  try {
+      mavar=getParamValue("adv",ur);
+  } catch (e) {
+      mavar="";
+  }
+  (new Image()).src ="//le.je/a/i.cgi?e=actionaturn&ae=ENTOURAGE&dsp=TURN&adv=" + mavar;
+      </script>
+  <img border="0" src="//d2dbm37ookqqwg.cloudfront.net/url/s/r.turn.com/r/beacon?b2=uhs4_9W_zy6nyCqdkiotJlNDhaLaS4uslrhhKXhspmDgWg2QEa2xTCbwF678cIC3NAXhkx3O_986RKtTUNXvxQ&cid=">
   </body>
 </html>
