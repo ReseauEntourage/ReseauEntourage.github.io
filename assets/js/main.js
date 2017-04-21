@@ -20,12 +20,16 @@ $(function () {
 
   // Get and display Entourage's details //
 
-  var entourageToken = getUrlParameter('entourageToken');
-  if (entourageToken) {
-    $band = $('#join-band');
-    $.get( "https://api.entourage.social/api/v1/public/entourages/" + entourageToken, function({entourage}) {
-      $band = $('#join-band');
+  var searchToken = /\/entourages\/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})/.exec(window.location.pathname);
+  if (searchToken) {
+    
+    var apiUrl = 'api.entourage.social';
+    if (window.location.hostname == 'entourage-landingpages-preprod.herokuapp.com' || window.location.hostname == 'localhost')
+      apiUrl = 'entourage-back-preprod.herokuapp.com';
 
+    $band = $('#join-band');
+    
+    $.get( 'https://' + apiUrl + '/api/v1/public/entourages/' + searchToken[1], function({entourage}) {
       var html = '<p class="need-you"><b class="user-name">' + entourage.author.display_name + '</b> a besoin de toi !</p>';
       html += '<div class="entourage-card">';
       html += '<h1 class="entourage-name">' + entourage.title + '</h1>';
@@ -45,10 +49,10 @@ $(function () {
       html += '<p class="join">Rejoins dès maintenant son action solidaire en téléchargeant l\'application Entourage !</p>';
       html += '<div class="buttons">';
       html += '<a href="https://itunes.apple.com/fr/app/entourage-reseau-civique/id1072244410?mt=8" target="_blank" title="Télécharger sur l\'App Store d\'Apple">';
-      html += '<img src="assets/img/download-iphone.png" alt="L\'application Entourage est disponible sur Iphone">';
+      html += '<img src="/assets/img/download-iphone.png" alt="L\'application Entourage est disponible sur Iphone">';
       html += '</a>';
       html += '<a href="https://play.google.com/store/apps/details?id=social.entourage.android" target="_blank" title="Télécharger sur Google Play">';
-      html += '<img src="assets/img/download-android.png" alt="L\'application Entourage est disponible sur Android">';
+      html += '<img src="/assets/img/download-android.png" alt="L\'application Entourage est disponible sur Android">';
       html += '</a>';
       html += '</div><a class="close-band">X Fermer</a>';
       html += '</div>';

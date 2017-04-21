@@ -1,3 +1,8 @@
 Redirect "/chartes/grand-public.html" "http://bit.ly/2lyuCsy"
 Redirect "/chartes/pro.html" "http://bit.ly/2lysJw2"
 Redirect "/cgu/index.html" "http://bit.ly/2ktRF6A"
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} /entourages/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})
+RewriteRule ^ / [P]
