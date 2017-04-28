@@ -3,8 +3,8 @@
 
 $(function () {
   
-  $.get( "https://api.entourage.social/api/v1/stats.json", function( data ) {
-    $("#assos_number").text(data["organizations"])
+  $.get('https://api.entourage.social/api/v1/public/stats.json', function( data ) {
+    $("#assos_number").text(data["organizations"]);
   });
 
 
@@ -22,10 +22,6 @@ $(function () {
 
   var searchToken = /\/entourages\/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})/.exec(window.location.pathname);
   if (searchToken) {
-    
-    var apiUrl = 'api.entourage.social';
-    if (window.location.hostname == 'entourage-landingpages-preprod.herokuapp.com' || window.location.hostname == 'localhost')
-      apiUrl = 'entourage-back-preprod.herokuapp.com';
 
     $band = $('#join-band');
     

@@ -899,3 +899,23 @@ video {
 .icon-fa-viadeo:before {
     content: "\e900";
 }
+
+#atd {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+#atd img {
+    margin-bottom: 20px;
+}
+
+#atd a {
+    margin-top: 20px;
+    display: inline-block;
+    background: #2595FF;
+    color: #fff;
+    padding: 5px 18px;
+    border-radius: 3px;
+    font-size: 14px;
+}
