@@ -2,8 +2,12 @@
 // *** Main page JS *** //
 
 $(function () {
+
+  var apiUrl = 'https://api.entourage.social/api/v1/public';
+  if (window.location.hostname == 'entourage-landingpages-preprod.herokuapp.com' || window.location.hostname == 'localhost')
+    apiUrl = 'https://entourage-back-preprod.herokuapp.com/api/v1/public';
   
-  $.get('https://api.entourage.social/api/v1/public/stats.json', function( data ) {
+  $.get(apiUrl + '/stats.json', function( data ) {
     $("#assos_number").text(data["organizations"]);
   });
 
@@ -25,7 +29,7 @@ $(function () {
 
     $band = $('#join-band');
     
-    $.get( 'https://' + apiUrl + '/api/v1/public/entourages/' + searchToken[1], function({entourage}) {
+    $.get(apiUrl + '/entourages/' + searchToken[1], function({entourage}) {
       var html = '<p class="need-you"><b class="user-name">' + entourage.author.display_name + '</b> a besoin de toi !</p>';
       html += '<div class="entourage-card">';
       html += '<h1 class="entourage-name">' + entourage.title + '</h1>';
