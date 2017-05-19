@@ -901,21 +901,21 @@ video {
 }
 
 #atd {
+    padding: 40px 0;
     text-align: center;
-    padding-top: 0;
-    color: #fff;
+    color: #333;
+    background: #eee;
 }
 
-#atd > div {
-    background: #00b1e6;
-    padding: 40px 0;
+#atd img {
+    margin-bottom: 20px;  
 }
 
 #atd a {
     margin-top: 20px;
     display: inline-block;
-    background: #fff;
-    color: #00b1e6;
+    background: #00b1e6;
+    color: #fff;
     padding: 5px 18px;
     border-radius: 3px;
     font-size: 14px;
