@@ -1,5 +1,4 @@
 
-// *** Main page JS *** //
 angular.module('entourageApp', [])
   .factory('googleMapsInitializer', function($window, $q){
 
@@ -7,12 +6,11 @@ angular.module('entourageApp', [])
     var mapsDefer = $q.defer();
 
     // Google's url for async maps initialization accepting callback function
-    var asyncUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyATSImG1p5k6KydsN7sESLVM2nREnU7hZk&callback=';
+    var asyncUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyATSImG1p5k6KydsN7sESLVM2nREnU7hZk&libraries=places&callback=';
 
     // async loader
     var asyncLoad = function(asyncUrl, callbackName) {
       var script = document.createElement('script');
-      //script.type = 'text/javascript';
       script.src = asyncUrl + callbackName;
       document.body.appendChild(script);
     };
@@ -30,35 +28,45 @@ angular.module('entourageApp', [])
         mapsInitialized : mapsDefer.promise
     };
   })
-  .controller('MapController', ['$scope', '$http', 'googleMapsInitializer', function($scope, $http, googleMapsInitializer) {
+  .controller('MapController', ['$scope', '$filter', '$http', 'googleMapsInitializer', function($scope, $filter, $http, googleMapsInitializer) {
     map = this
+
     map.actions = [];
     map.infoWindow = null;
     map.currentAction = null;
-    map.actionDiameterMeter = 250;
     map.loaded = false;
+    map.registrationToggle = false;
 
-    map.initMap = function(position) {
-      console.info(position);
+    // size of marker icons
+    map.actionIcon = {
+      meters: 250,
+      pixels: null
+    };
 
-      var params = {
-        maxZoom: 15,
-        zoom: 6,
-        center: {
-          lat: 48.8588376,
-          lng: 2.2773456
-        }
-      };
+    // default parameters of our map (centered on France)
+    map.mapObjectParams = {
+      maxZoom: 15,
+      zoom: 6,
+      center: {
+        lat: 48.8588376,
+        lng: 2.2773456
+      },
+      disableDefaultUI: true
+    };
 
-      if (position)
+    map.init = function(position) {
+
+      // center the map on the user position (if given)
+      if (position && position.coords)
       {
-        params.zoom = 13;
-        params.center.lat = position.coords.latitude;
-        params.center.lng = position.coords.longitude;
+        map.mapObjectParams.zoom = 13;
+        map.mapObjectParams.center.lat = position.coords.latitude;
+        map.mapObjectParams.center.lng = position.coords.longitude;
       }
 
-      map.mapObject = new google.maps.Map(document.getElementById('map-container'), params);
+      map.mapObject = new google.maps.Map(document.getElementById('map-container'), map.mapObjectParams);
 
+      // get the list of actions
       $.ajax({
         type: "GET",
         url: "assets/downloads/entourages.csv",
@@ -71,10 +79,11 @@ angular.module('entourageApp', [])
             if (action.status != 'open')
               continue;
 
+            action.created_at = new Date(action.created_at);
+
             action.latLng = new google.maps.LatLng(action.Latitude, action.Longitude);
 
-            map.calculateRadius(action);
-
+            // create marker
             action.marker = new google.maps.Marker({
               id: map.actions.length - 1,
               position: action.latLng,
@@ -87,55 +96,100 @@ angular.module('entourageApp', [])
               animation: google.maps.Animation.DROP
             });
 
-            action.infoWindow = '<div class="gm-info-window"><b>' + action.title + '</b><span>Par <a>' + action.first_name + '</a></span></div>';
+            // draw custom marker icon
+            map.drawIcon(action);
 
+            // display action title when marker hovered
             action.marker.addListener('mouseover', map.showTitle);
+            
+            // show detailed action window when marker clicked
             action.marker.addListener('click', map.showAction);
+
             map.actions.push(action);
           }
 
-          google.maps.event.addListener(map.mapObject, 'zoom_changed', map.calculateRadius);
+          // redraw all icons when zoom changes
+          google.maps.event.addListener(map.mapObject, 'zoom_changed', map.drawIcon);
 
+          map.initSearchbox();
+
+          // remove loader
           map.loaded = true;
-          $('#page-title').fadeOut();
+
+          $scope.$apply();
         }
       });
     };
 
-    map.calculateRadius = function(action) {
+    map.initSearchbox = function() {
+      var searchBox = new google.maps.places.SearchBox(document.getElementById('map-search-input'));
+
+      searchBox.addListener('places_changed', function() {
+        console.info('places_changed');
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0)
+          return;
+        else {
+          console.info(places[0]);
+          map.mapObject.setZoom(13);
+          map.mapObject.setCenter(places[0].geometry.location);  
+        }
+      });
+    }
+
+    map.drawIcon = function(action) {
       if (action)
         lat = action.latLng.lat();
       else
         lat = map.actions[0].latLng.lat();
-      map.actionDiameterPixel = map.actionDiameterMeter / (156543.03392 * Math.cos(lat * Math.PI / 180) / Math.pow(2, map.mapObject.getZoom()));
-      $('#inline-style').text('.gm-style > div > div .gmnoprint {width: ' + map.actionDiameterPixel + 'px !important;height: ' + map.actionDiameterPixel + 'px !important;margin: -' + (map.actionDiameterPixel/2) + 'px !important; transform-origin: ' + (map.actionDiameterPixel/3) + 'px ' + (map.actionDiameterPixel/3) + 'px;}');
+      map.actionIcon.pixels = metersToPixels(map.actionIcon.meters, lat);
+      $('#inline-style').text('.gm-style > div > div .gmnoprint {width: ' + map.actionIcon.pixels + 'px !important;height: ' + map.actionIcon.pixels + 'px !important;margin: -' + (map.actionIcon.pixels/2) + 'px !important; transform-origin: ' + (map.actionIcon.pixels/3) + 'px ' + (map.actionIcon.pixels/3) + 'px;}');
+    }
+
+    metersToPixels = function(meters, lat) {
+      return meters / (156543.03392 * Math.cos(lat * Math.PI / 180) / Math.pow(2, map.mapObject.getZoom()));
     }
 
     map.showTitle = function(marker) {
       if (map.infoWindow)
         map.infoWindow.close();
+
       map.infoWindow = new google.maps.InfoWindow({
-        pixelOffset: new google.maps.Size(0, map.actionDiameterPixel / -2),
-        content: map.actions[this.id].infoWindow
+        pixelOffset: new google.maps.Size(0, map.actionIcon.pixels / -2),
+        content: '<div class="gm-info-window"><b>' + map.actions[this.id].title + '</b><span>Par <a>' + map.actions[this.id].first_name + '</a>, le ' + $filter('date')(map.actions[this.id].created_at, 'dd/MM') + '</span></div>'
       });
       map.infoWindow.open(map.mapObject, this);
     }
 
     map.showAction = function(marker) {
-      console.info('marker clicked', this);
       map.currentAction = map.actions[this.id];
       $scope.$apply();
     }
 
-    map.getLocation = function() {
-      if (navigator.geolocation)
-        navigator.geolocation.getCurrentPosition(map.initMap);
+    map.register = function() {
+      if (map.phone && map.phone.replace(/\s/g, '').match(/^[\+33]?0?[0-9]{9}/i))
+      {
+        map.invitationSent = true;
+        delete map.registrationError;
+      }
       else
-        map.initMap()
+      {
+        map.registrationError = 'Votre numéro ne semble pas correct';
+      }
+      $scope.$apply();
     }
 
-    googleMapsInitializer.mapsInitialized
-      .then(function(){
-          map.getLocation();
-      });
+
+    // initialize the map when GoogleMaps script is loaded
+    googleMapsInitializer.mapsInitialized.then(function(){
+
+      if (navigator.geolocation)
+
+        // ask user position
+        navigator.geolocation.getCurrentPosition(map.init, map.init)
+
+      else
+        map.init();
+    });
   }]);

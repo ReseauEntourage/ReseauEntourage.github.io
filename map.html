@@ -25,28 +25,68 @@
     ng-cloak>
 
     <header id="main-header">
-      <img title="Entourage, le réseau de ceux qui n'ont pas de réseau" src="assets/img/apple-touch-icon.png"/>
-      <h1>Explorez <a href="">Entourage</a>, le réseau de ceux qui n'ont plus de réseau</h1>
+      <img title="Entourage, réseau de chaleur humaine" src="assets/img/apple-touch-icon.png"/>
+      <div id="map-search" ng-hide="map.registrationToggle">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="nonzero" d="M3.83 9.4a7.75 7.75 0 1 0 15.342 2.198A7.75 7.75 0 0 0 3.83 9.401zm16.825 2.412A9.25 9.25 0 1 1 2.343 9.186a9.25 9.25 0 0 1 18.312 2.626zM16.97 18.03a.75.75 0 0 1 1.06-1.06l5 5a.75.75 0 0 1-1.06 1.06"></path></svg>
+        <input id="map-search-input" ng-show="map.loaded" type="text" placeholder="Cherchez un lieu...">
+      </div>
+      <h1 ng-hide="map.registrationToggle">Explorez <a href="http://www.entourage.social/" target="_blank">Entourage</a>, le réseau de ceux qui n'ont plus de réseau</h1>
+      <h1 ng-show="map.registrationToggle">Rejoignez le réseau <a href="http://www.entourage.social/" target="_blank">Entourage</a> !</h1>
     </header>
 
     <div id="page-content">
 
-      <div id="page-title">
+      <div id="page-title" class="overlay" ng-class="{'fade-out': map.loaded}">
         <div>
           <img title="Entourage, le réseau de ceux qui n'ont pas de réseau" src="assets/img/apple-touch-icon.png"/>
-          <h1><a href="">Entourage</a>, le réseau de ceux qui n'ont plus de réseau...</h1>
+          <h1><a href="http://www.entourage.social/" target="_blank">Entourage</a>, le réseau de ceux qui n'ont plus de réseau...</h1>
         </div>
       </div>
 
-      <div id="map" ng-class="{'loading': map.loading}">
+      <div id="page-registration" class="overlay" ng-class="{'fade-in': map.registrationToggle}">
+        <div>
+          <div class="content">
+            <h1 ng-hide="map.invitationSent">
+              Envie de passer à l'action ? Super !<br>
+              Rejoignez <a class="action-author" ng-bind="map.currentAction.first_name"></a> sur l'application Entourage.
+            </h1>
+            <div ng-show="map.invitationSent">
+              <h1>C'est tout bon ! Regardez vite vos SMS !</h1>
+            </div>
+            <img class="app-screenshot" title="Découvrez l'application Entourage" src="assets/img/app-screenshot.png"/>
+            <div class="registration-form">
+              <div ng-hide="map.invitationSent">
+                <p>Entrez votre numéro de téléphone pour vous inscrire et recevoir votre mot de passe par SMS :</p>
+                <div class="input-parent">
+                  <input type="text" ng-model="map.phone" placeholder="Numéro de téléphone"/>
+                  <a class="btn" ng-click="map.register()">Télécharger</a>
+                </div>
+                <div class="error" ng-if="map.registrationError" ng-bind="map.registrationError"></div>
+              </div>
+              <p ng-show="map.invitationSent">
+                Le SMS que vous allez recevoir contient toutes les informations dont vous avez besoin :<br><br>
+                - le lien de téléchargement de l'application<br>
+                - votre mot de passe pour vous identifier<br><br>
+                A tout de suite sur <a>Entourage</a> !
+              </p>
+            </div>
+            <a class="page-close" ng-click="map.registrationToggle = false">X</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="map">
         <div id="map-right-band"
         ng-class="{open: map.currentAction}">
           <h3 class="action-title" ng-bind="map.currentAction.title"></h3>
-          <p class="action-description" ng-bind="map.currentAction.description"></p>
-          <a class="btn btn-primary">Je peux aider !</a>
+          <div class="action-content">
+            <p class="action-description" ng-if="map.currentAction.description" ng-bind="map.currentAction.description"></p>
+            <a class="btn btn-primary" ng-click="map.registrationToggle = true">Rejoindre cette action !</a>
+          </div>
           <div class="action-details">
+            <a class="action-close" ng-click="map.currentAction = null">Fermer</a>
             Par <a class="action-author" ng-bind="map.currentAction.first_name"></a>, le
-            <span class="action-date" ng-bind="map.currentAction.created_at"></span>
+            <span class="action-date" ng-bind="map.currentAction.created_at|date:'dd/MM'"></span>
           </div>
         </div>
         <div id="map-container"></div>
