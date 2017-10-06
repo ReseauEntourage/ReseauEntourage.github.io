@@ -73,6 +73,13 @@ $(function () {
     $('#overlay').fadeOut();
     $('body').removeClass('with-overlay');
   });
+
+
+  /* Tracking events */
+  $('.apple-download-btn').add('.android-download-btn').on('click', function(e){
+    fbq('track', 'ViewContent');
+  });
+
 });
 
 function getUrlParameter(sParam) {
