@@ -50,6 +50,21 @@ body.with-overlay #overlay {
   display: table;
 }
 
+#atd-band {
+  background: #272625;
+}
+
+#atd-band h2 {
+  color: #2d95e5;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+#atd-band a {
+  color: #2d95e5;
+  text-decoration: underline;
+}
+
 #join-band {
   display: none;
   text-align: center;
