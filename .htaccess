@@ -4,5 +4,5 @@ Redirect "/cgu/index.html" "http://bit.ly/2ktRF6A"
 
 RewriteEngine On
 
-RewriteCond %{REQUEST_URI} /entourages/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})
+RewriteCond %{REQUEST_URI} /entourages/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12}|e[a-zA-Z0-9_-]{11})
 RewriteRule ^ / [P]

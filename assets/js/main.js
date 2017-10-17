@@ -24,7 +24,7 @@ $(function () {
 
   // Get and display Entourage's details //
 
-  var searchToken = /\/entourages\/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})/.exec(window.location.pathname);
+  var searchToken = /\/entourages\/([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12}|e[a-zA-Z0-9_-]{11})/.exec(window.location.pathname);
   if (searchToken) {
 
     $band = $('#join-band');
