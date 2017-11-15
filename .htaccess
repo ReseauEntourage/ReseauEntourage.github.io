@@ -1,6 +1,7 @@
 Redirect "/chartes/grand-public.html" "https://blog.entourage.social/charte-ethique-grand-public/"
 Redirect "/chartes/pro.html" "https://blog.entourage.social/charte-ethique-maraudeur"
 Redirect "/cgu/index.html" "http://bit.ly/2ktRF6A"
+Redirect "/don" "https://entourage.iraiser.eu"
 
 RewriteEngine On
 
